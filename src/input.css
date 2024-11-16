@@ -7,6 +7,7 @@
 
 body {
   @apply font-primary;
+  background-color: #fefff0;
 }
 
 :root {
@@ -22,9 +23,9 @@ body {
   --max-vw: 1920;
 
   /* Font sizes at max viewport width */
-  --text-h1: 64;
+  --text-h1: 80;
   --text-h2: 48;
-  --text-h3: 40;
+  --text-h3: 36;
   --text-base: 18;
 
   /* Font sizes at min viewport width (scaled down) */
@@ -189,4 +190,27 @@ header:after {
   overflow: visible;
   /* z-index: 999; */
   right: 0;
+}
+
+.intro-content {
+  max-width: 1360px;
+  margin: auto;
+}
+
+#intro .intro-section .intro-content .right-column {
+  position: relative;
+}
+
+#intro .intro-section .intro-content .right-column:before {
+  content: url(./assets/icon/logo-smile.svg);
+  position: absolute;
+  top: -140px;
+  left: -40px;
+}
+
+#intro .intro-section .intro-content .right-column:after {
+  content: url(./assets/icon/arrow.svg);
+  position: absolute;
+  top: -135px;
+  left: 65px;
 }
