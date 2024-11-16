@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Responsive</title>
+  <link rel="stylesheet" href="./style.css" />
+  <script src="//unpkg.com/alpinejs" defer></script>
+
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
+  </style>
+</head>
+
+<body x-data="{ mobileMenu: false }">
+  <header class="bg-primary md:border-b-4 border-b-2 border-black py-8 px-4">
+    <div class="container mx-auto">
+      <nav
+        class="md:max-w-[689px] mx-auto max-w-3xl border-[5px] border-[solid] border-[#000] bg-[#FFF] [box-shadow:6px_6px_0px_0px_rgba(0,_0,_0,_0.25)] relative z-50">
+        <!-- Desktop Menu -->
+        <div class="pl-[22px] hidden md:grid grid-cols-[repeat(5,_1fr)] grid-rows-[repeat(1,_1fr)] desktop-menu">
+          <!-- Logo Section -->
+          <a href="/" class="flex items-center gap-2 border-r-4 border-black py-[22px] col-span-2 max-h-[76px]">
+            <img src="./assets/icon/header-logo.svg" alt="" class="" />
+            <span class="text-4xl text-secondary font-normal">znis</span>
+          </a>
+
+          <!-- About Section -->
+          <a href="#about" class="border-r-4 border-black py-[22px] text-center col-start-3 text-2xl font-medium">
+            About //
+          </a>
+
+          <!-- Portfolio Section -->
+          <a href="#portfolio"
+            class="border-r-4 border-black py-[22px] text-center font-medium text-[#ff8c00] col-start-4 text-2xl">
+            Portfolio
+          </a>
+
+          <!-- Hire Me Section -->
+          <a href="#hire" class="py-[22px] text-center col-start-5 text-2xl last-menu-item font-medium">
+            Hire Me
+          </a>
+        </div>
+
+        <!-- Mobile Menu Button and Layout -->
+        <div class="md:hidden flex justify-between items-center p-2">
+          <div class="flex items-center gap-2">
+            <img src="./assets/icon/header-logo.svg" alt="" class="h-4 w-4" />
+            <span class="text-lg">znis</span>
+          </div>
+          <button @click="mobileMenu = !mobileMenu">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div x-show="mobileMenu" class="md:hidden">
+          <nav class="flex flex-col border-t border-black">
+            <a href="#about" class="p-2 border-b border-black">About //</a>
+            <a href="#portfolio" class="p-2 border-b border-black font-bold text-[#ff8c00]">Portfolio</a>
+            <a href="#hire" class="p-2">Hire Me</a>
+          </nav>
+        </div>
+      </nav>
+    </div>
+  </header>
+</body>
+
+</html>

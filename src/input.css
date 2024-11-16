@@ -1,0 +1,192 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import custom CSS */
+@import "app.css";
+
+body {
+  @apply font-primary;
+}
+
+:root {
+  /* Primary Colors */
+  --primary: #000000;
+  --secondary: #ffffff;
+  --accent: #ff6347;
+
+  --font-primary: "Space Grotesk";
+
+  /* Viewport breakpoints */
+  --min-vw: 640;
+  --max-vw: 1920;
+
+  /* Font sizes at max viewport width */
+  --text-h1: 64;
+  --text-h2: 48;
+  --text-h3: 40;
+  --text-base: 18;
+
+  /* Font sizes at min viewport width (scaled down) */
+  --text-h1-min: calc(var(--text-h1) * 0.425);
+  --text-h2-min: calc(var(--text-h2) * 0.5);
+  --text-h3-min: calc(var(--text-h3) * 0.6);
+  --text-base-min: calc(var(--text-base) * 0.75);
+}
+
+@layer components {
+  .fluid-fs {
+    --max-fs: var(--text-base);
+    --min-fs: var(--text-base-min);
+
+    --slope: calc(
+      (var(--max-fs) - var(--min-fs)) / (var(--max-vw) - var(--min-vw))
+    );
+    --min-fs-px: calc(var(--min-fs) * 1px);
+    --max-fs-px: calc(var(--max-fs) * 1px);
+    --fs-px: calc(
+      var(--slope) * (100vw - var(--min-vw) * 1px) + var(--min-fs-px)
+    );
+
+    font-size: clamp(var(--min-fs-px), var(--fs-px), var(--max-fs-px));
+  }
+
+  .heading1 {
+    @apply fluid-fs;
+    --max-fs: var(--text-h1);
+    --min-fs: var(--text-h1-min);
+    line-height: 1.5;
+  }
+
+  .heading2 {
+    @apply fluid-fs;
+    --max-fs: var(--text-h2);
+    --min-fs: var(--text-h2-min);
+    line-height: 1.5;
+  }
+
+  .heading3 {
+    @apply fluid-fs;
+    --max-fs: var(--text-h3);
+    --min-fs: var(--text-h3-min);
+    line-height: 1.25;
+  }
+}
+
+:root {
+  --container-lg: 1760px;
+  --container-md: 1560px;
+  --container-sm: 1360px;
+
+  /* Padding calculations */
+  --container-md-px: calc(
+    (var(--container-lg) - var(--container-md)) / 2 / var(--container-lg) * 100%
+  );
+  --container-sm-px: calc(
+    (var(--container-lg) - var(--container-sm)) / 2 / var(--container-lg) * 100%
+  );
+}
+
+.container {
+  max-width: var(--container-lg);
+  width: 100%;
+  padding: 0 20px;
+}
+
+@media (max-width: 1366px) {
+  .container-md {
+    padding: 0 var(--container-md-px);
+  }
+}
+
+@media (max-width: 1024px) {
+  .container-sm {
+    padding: 0 var(--container-sm-px);
+  }
+}
+
+.mobile-menu {
+  margin: auto !important;
+}
+
+.desktop-menu {
+  position: relative;
+}
+
+.desktop-menu:before {
+  content: " ";
+  position: absolute;
+  border: 3px solid #000;
+  background: #fff;
+  left: -14px;
+  top: -12px;
+  width: 14px;
+  height: 14px;
+}
+
+.desktop-menu:after {
+  content: " ";
+  position: absolute;
+  border: 3px solid #000;
+  background: #fff;
+  left: -14px;
+  top: 75px;
+  width: 14px;
+  height: 14px;
+  box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 0.25);
+}
+
+.last-menu-item {
+  position: relative;
+}
+
+.last-menu-item:before {
+  content: " ";
+  position: absolute;
+  border: 3px solid #000;
+  background: #fff;
+  right: -14px;
+  top: -12px;
+  width: 14px;
+  height: 14px;
+  box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 0.25);
+}
+
+.last-menu-item:after {
+  content: " ";
+  position: absolute;
+  border: 3px solid #000;
+  background: #fff;
+  right: -14px;
+  top: 75px;
+  width: 14px;
+  height: 14px;
+  box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 0.25);
+}
+
+header {
+  position: relative;
+}
+
+header:before {
+  /* content: ""; */
+  content: url(./assets/icon/header-star-left.svg);
+  width: 100%;
+  position: absolute;
+  height: 100px;
+  background-repeat: no-repeat;
+  bottom: 0;
+  overflow: visible;
+  /* z-index: 999; */
+  left: 0;
+}
+
+header:after {
+  content: url(./assets/icon/header-star-right.svg);
+  position: absolute;
+  background-repeat: no-repeat;
+  top: 0;
+  overflow: visible;
+  /* z-index: 999; */
+  right: 0;
+}
