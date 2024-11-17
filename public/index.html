@@ -1,95 +1,347 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Responsive</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="//unpkg.com/alpinejs" defer></script>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Project Responsive</title>
-  <link rel="stylesheet" href="./style.css" />
-  <script src="//unpkg.com/alpinejs" defer></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
+    </style>
+  </head>
 
-  <style>
-    @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
-  </style>
-</head>
+  <body x-data="{ mobileMenu: false }">
+    <header class="bg-primary md:border-b-4 border-b-2 border-black py-8 px-4">
+      <div class="container mx-auto">
+        <nav
+          class="md:max-w-[689px] mx-auto max-w-3xl border-[5px] border-[solid] border-black bg-[#FFF] [box-shadow:6px_6px_0px_0px_rgba(0,_0,_0,_0.25)] relative z-50"
+        >
+          <!-- Desktop Menu -->
+          <div
+            class="pl-[22px] hidden md:grid grid-cols-[repeat(5,_1fr)] grid-rows-[repeat(1,_1fr)] desktop-menu"
+          >
+            <!-- Logo Section -->
+            <a
+              href="/"
+              class="flex items-center gap-2 border-r-4 border-black py-[22px] col-span-2 max-h-[76px]"
+            >
+              <img src="./assets/icon/header-logo.svg" alt="" class="" />
+              <span class="text-4xl text-secondary font-normal">znis</span>
+            </a>
 
-<body x-data="{ mobileMenu: false }">
-  <header class="bg-primary md:border-b-4 border-b-2 border-black py-8 px-4">
-    <div class="container mx-auto">
-      <nav
-        class="md:max-w-[689px] mx-auto max-w-3xl border-[5px] border-[solid] border-[#000] bg-[#FFF] [box-shadow:6px_6px_0px_0px_rgba(0,_0,_0,_0.25)] relative z-50">
-        <!-- Desktop Menu -->
-        <div class="pl-[22px] hidden md:grid grid-cols-[repeat(5,_1fr)] grid-rows-[repeat(1,_1fr)] desktop-menu">
-          <!-- Logo Section -->
-          <a href="/" class="flex items-center gap-2 border-r-4 border-black py-[22px] col-span-2 max-h-[76px]">
-            <img src="./assets/icon/header-logo.svg" alt="" class="" />
-            <span class="text-4xl text-secondary font-normal">znis</span>
-          </a>
+            <!-- About Section -->
+            <a
+              href="#about"
+              class="border-r-4 border-black py-[22px] text-center col-start-3 text-2xl font-medium"
+            >
+              About //
+            </a>
 
-          <!-- About Section -->
-          <a href="#about" class="border-r-4 border-black py-[22px] text-center col-start-3 text-2xl font-medium">
-            About //
-          </a>
+            <!-- Portfolio Section -->
+            <a
+              href="#portfolio"
+              class="border-r-4 border-black py-[22px] text-center font-medium text-[#ff8c00] col-start-4 text-2xl"
+            >
+              Portfolio
+            </a>
 
-          <!-- Portfolio Section -->
-          <a href="#portfolio"
-            class="border-r-4 border-black py-[22px] text-center font-medium text-[#ff8c00] col-start-4 text-2xl">
-            Portfolio
-          </a>
-
-          <!-- Hire Me Section -->
-          <a href="#hire" class="py-[22px] text-center col-start-5 text-2xl last-menu-item font-medium">
-            Hire Me
-          </a>
-        </div>
-
-        <!-- Mobile Menu Button and Layout -->
-        <div class="md:hidden flex justify-between items-center p-2">
-          <div class="flex items-center gap-2">
-            <img src="./assets/icon/header-logo.svg" alt="" class="h-4 w-4" />
-            <span class="text-lg">znis</span>
+            <!-- Hire Me Section -->
+            <a
+              href="#hire"
+              class="py-[22px] text-center col-start-5 text-2xl last-menu-item font-medium"
+            >
+              Hire Me
+            </a>
           </div>
-          <button @click="mobileMenu = !mobileMenu">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-              stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-            </svg>
-          </button>
-        </div>
 
-        <!-- Mobile Menu Dropdown -->
-        <div x-show="mobileMenu" class="md:hidden">
-          <nav class="flex flex-col border-t border-black">
-            <a href="#about" class="p-2 border-b border-black">About //</a>
-            <a href="#portfolio" class="p-2 border-b border-black font-bold text-[#ff8c00]">Portfolio</a>
-            <a href="#hire" class="p-2">Hire Me</a>
-          </nav>
-        </div>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <section id="intro">
-      <div class="container mx-auto intro-section">
-        <div class="container-sm intro-content xl:pt-[213px] lg:pt-[150px] md:pt-[140px] pt-6">
-          <div class="grid grid-cols-1 md:grid-cols-2 xl:gap-[120px] lg:gap-12 gap-6">
-            <div class="left-column">
-              <img src="./assets/image/star-face.png" alt="">
-              <h1 class="heading1 font-normal text-black">
-                I design ✍️ top
-                notch websites
-              </h1>
-              <button class="text-[29px]">See Portfolio</button>
+          <!-- Mobile Menu Button and Layout -->
+          <div class="md:hidden flex justify-between items-center p-2">
+            <div class="flex items-center gap-2">
+              <img src="./assets/icon/header-logo.svg" alt="" class="h-4 w-4" />
+              <span class="text-lg">znis</span>
             </div>
-            <div class="right-column">
-              <img src="./assets/image/intro-right-img.png" alt="">
+            <button @click="mobileMenu = !mobileMenu">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16m-7 6h7"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Mobile Menu Dropdown -->
+          <div x-show="mobileMenu" class="md:hidden">
+            <nav class="flex flex-col border-t border-black">
+              <a href="#about" class="p-2 border-b border-black">About //</a>
+              <a
+                href="#portfolio"
+                class="p-2 border-b border-black font-bold text-[#ff8c00]"
+                >Portfolio</a
+              >
+              <a href="#hire" class="p-2">Hire Me</a>
+            </nav>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="intro">
+        <div class="container mx-auto intro-section">
+          <div class="container-sm intro-content">
+            <div
+              class="grid grid-cols-1 items-center md:grid-cols-2 xl:gap-[120px] lg:gap-12 gap-[140px] xl:pt-[213px] md:pt-[150px] pt-6 xl:pb-[148px] md:pb-24 pb-6"
+            >
+              <div class="left-column">
+                <img src="./assets/image/star-face.png" alt="" />
+                <h1 class="heading1 font-normal text-black">
+                  I design ✍️ top notch websites
+                </h1>
+                <button
+                  class="see-portfolio lg:text-[29px] text-xl rounded-[92px] border-8 border-solid border-black bg-button lg:py-[30px] lg:px-[55px] py-4 px-6 lg:mt-12 md:mt-8 mt-5"
+                >
+                  See Portfolio
+                </button>
+              </div>
+              <div class="right-column">
+                <img src="./assets/image/intro-right-img.png" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="tool">
+        <div
+          class="tool-section relative z-999 bg-black lg:py-[39px] lg:px-[98px] py-8 px-9"
+        >
+          <div
+            class="max-w-[1360px] w-fit m-auto tool-content grid md:grid-cols-5 grid-cols-2 lg:gap-[113px] md:gap-10 gap-5"
+          >
+            <h2 class="text-white heading2 w-fit">Figma</h2>
+            <h2 class="text-white heading2 w-fit">Framer</h2>
+            <h2 class="text-white heading2 w-fit">Webflow</h2>
+            <h2 class="text-white heading2 w-fit">Notion</h2>
+            <h2 class="text-white heading2 w-fit">Lottie</h2>
+          </div>
+        </div>
+      </section>
+
+      <section id="services">
+        <div class="services-section">
+          <div class="services-content">
+            <div
+              class="min-[1921px]:max-w-[1920px] min-[1720px]:max-w-[1650px] 2xl:max-w-[1360px] xl:max-w-[1280px] lg:max-w-[980px] md:max-w-[700px] ml-auto"
+            >
+              <h2
+                class="heading2 my-20 font-medium md:max-w-[563px] max-w-full md:mx-0 mx-auto service-title md:p-0 p-5"
+              >
+                Services we’re providing that derive 99% result
+              </h2>
+              <!-- Stats and Services Section -->
+              <div
+                class="grid grid-cols-1 md:grid-cols-3 border-y-[3px] border-black service-grid"
+              >
+                <!-- Stats Column -->
+                <div
+                  class="space-y-4 border-b-[3px] md:border-r-[3px] md:border-b-0 border-black"
+                >
+                  <div class="projects-column py-[41px] pl-[21px]">
+                    <div class="heading2 font-medium">39</div>
+                    <div class="text-base font-medium">Projects</div>
+                  </div>
+                  <div
+                    class="generated-column border-t-[3px] border-black py-[41px] pl-[21px]"
+                  >
+                    <div class="heading2 font-medium">100k+</div>
+                    <div class="text-base font-medium">Generated</div>
+                  </div>
+                </div>
+
+                <!-- Services Grid -->
+                <div class="col-span-2 grid grid-cols-1 sm:grid-cols-2">
+                  <!-- User Research -->
+                  <div class="border-b-[3px] sm:border-r-[3px] border-black">
+                    <div
+                      class="services-grid py-[60px] pl-[26px] pr-[82px] grid gap-[19px]"
+                    >
+                      <img src="./assets/icon/user-research.svg" alt="" />
+                      <h3 class="heading3 font-bold">User Research</h3>
+                      <h6 class="text-base">
+                        Services we’re providing that derive 99% result
+                      </h6>
+                    </div>
+                    <a
+                      href="#"
+                      class="text-black heading3 font-bold w-full mt-2 border-t-[3px] md:border-x-0 border-x-[3px] border-black py-[31px] px-4 inline-block"
+                    >
+                      Learn more
+                    </a>
+                  </div>
+
+                  <!-- Wireframing -->
+                  <div class="border-b-[3px] sm:border-r-[3px] border-black">
+                    <div
+                      class="services-grid py-[60px] pl-[26px] pr-[82px] grid gap-[19px]"
+                    >
+                      <img src="./assets/icon/wireframing.svg" alt="" />
+                      <h3 class="heading3 font-bold">User Research</h3>
+                      <h6 class="text-base">
+                        Services we’re providing that derive 99% result
+                      </h6>
+                    </div>
+                    <a
+                      href="#"
+                      class="text-black heading3 font-bold w-full mt-2 border-t-[3px] md:border-x-0 border-x-[3px] border-black py-[31px] px-4 inline-block"
+                    >
+                      Learn more
+                    </a>
+                  </div>
+
+                  <!-- UI Designing -->
+                  <div class="sm:border-r-[3px] border-black">
+                    <div
+                      class="services-grid py-[60px] pl-[26px] pr-[82px] grid gap-[19px]"
+                    >
+                      <img src="./assets/icon/ui-design.svg" alt="" />
+                      <h3 class="heading3 font-bold">User Research</h3>
+                      <h6 class="text-base">
+                        Services we’re providing that derive 99% result
+                      </h6>
+                    </div>
+                    <a
+                      href="#"
+                      class="text-black heading3 font-bold w-full mt-2 border-t-[3px] md:border-b-0 border-b-[3px] md:border-x-0 border-x-[3px] border-black py-[31px] px-4 inline-block"
+                    >
+                      Learn more
+                    </a>
+                  </div>
+
+                  <!-- Prototyping -->
+                  <div class="sm:border-r-[3px] border-black">
+                    <div
+                      class="services-grid py-[60px] pl-[26px] pr-[82px] grid gap-[19px]"
+                    >
+                      <img src="./assets/icon/prototype.svg" alt="" />
+                      <h3 class="heading3 font-bold">User Research</h3>
+                      <h6 class="text-base">
+                        Services we’re providing that derive 99% result
+                      </h6>
+                    </div>
+                    <a
+                      href="#"
+                      class="text-black heading3 font-bold w-full mt-2 border-t-[3px] md:border-x-0 border-x-[3px] border-black py-[31px] px-4 inline-block"
+                    >
+                      Learn more
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="my-portfolio">
+        <div class="container">
+          <div class="container-sm">
+            <h1 class="heading1 text-center text-black font-normal">
+              My Portfolio ️
+            </h1>
+            <div class="container max-w-[1230px] mx-auto px-4 py-10">
+              <div
+                class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10"
+              >
+                <!-- Card 1 -->
+                <!-- <div class="group relative border border-black p-4">
+                  <img
+                    src="./assets/image/portfolio-1.png"
+                    alt="Project Image"
+                    class="w-full h-64 object-cover"
+                  />
+                  <div
+                    class="absolute top-0 left-0 w-full h-full border-black border group-hover:-translate-y-1 transition-transform duration-300"
+                  ></div>
+                  <div class="absolute bottom-0 left-0 p-4 bg-white w-full">
+                    <h3 class="font-bold text-xl">Portfolio Design</h3>
+                    <p class="text-sm text-gray-600">
+                      UI design - User research - Webflow develop
+                    </p>
+                    <a href="#" class="absolute bottom-4 right-4">
+                      <svg
+                        class="w-5 h-5"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M10 3h4v2h-2v12h2v2h-4V3zM3 10h2v4H3v-4zm16 0h2v4h-2v-4zM6.586 7.414L8 6l-4-4-1.414 1.414L6.586 7.414z"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div> -->
+
+                <!-- Card 2 -->
+
+                <!-- Card 3 -->
+
+                <!-- Card 4 -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="footer">
+      <div class="footer-container mx-auto border-t-[6px] border-black">
+        <div class="footer-section pt-[89px] pb-[96px] max-w-[1360px] mx-auto">
+          <div
+            class="md:grid flex md:grid-cols-3 justify-center flex-wrap w-fit mx-auto items-center 2xl:gap-[288px] xl:gap-[100px] lg:gap-[50px] gap-7"
+          >
+            <!-- Logo Section -->
+            <a href="/" class="flex items-center gap-2 text-xl font-medium">
+              <img src="./assets/icon/header-logo.svg" alt="" />
+              <span class="heading3 text-secondary font-normal">znis</span>
+            </a>
+
+            <!-- Center Text Section -->
+            <div class="text-center text-[32px] text-black font-medium">
+              Portfolio 2024
+            </div>
+
+            <!-- Social Media Links -->
+            <div class="flex items-center justify-start gap-6">
+              <!-- Dribbble -->
+              <a href="https://dribbble.com" class="hover:opacity-75">
+                <img src="./assets/icon/dribble.svg" alt="" />
+              </a>
+
+              <!-- Instagram -->
+              <a href="https://instagram.com" class="hover:opacity-75">
+                <img src="./assets/icon/instagram.svg" alt="" />
+              </a>
+
+              <!-- Twitter -->
+              <a href="https://twitter.com" class="hover:opacity-75">
+                <img src="./assets/icon/x.svg" alt="" />
+              </a>
             </div>
           </div>
         </div>
       </div>
-    </section>
-  </main>
-</body>
-
+    </footer>
+  </body>
 </html>

@@ -26,12 +26,16 @@ body {
   --text-h1: 80;
   --text-h2: 48;
   --text-h3: 36;
-  --text-base: 18;
+  --text-h4: 27.993;
+  --text-h5: 25.448;
+  --text-base: 24;
 
   /* Font sizes at min viewport width (scaled down) */
   --text-h1-min: calc(var(--text-h1) * 0.425);
   --text-h2-min: calc(var(--text-h2) * 0.5);
   --text-h3-min: calc(var(--text-h3) * 0.6);
+  --text-h4-min: calc(var(--text-h4) * 0.65);
+  --text-h5-min: calc(var(--text-h5) * 0.7);
   --text-base-min: calc(var(--text-base) * 0.75);
 }
 
@@ -71,6 +75,32 @@ body {
     --max-fs: var(--text-h3);
     --min-fs: var(--text-h3-min);
     line-height: 1.25;
+  }
+
+  .heading4 {
+    @apply fluid-fs;
+    --max-fs: var(--text-h4);
+    --min-fs: var(--text-h4-min);
+    line-height: 1.25;
+  }
+
+  .heading5 {
+    @apply fluid-fs;
+    --max-fs: var(--text-h5);
+    --min-fs: var(--text-h5-min);
+    line-height: 1.25;
+  }
+
+  .text-base {
+    @apply fluid-fs;
+    --max-fs: var(--text-base);
+    --min-fs: var(--text-base-min);
+    font-size: clamp(
+      var(--min-fs-px),
+      var(--fs-px),
+      var(--max-fs-px)
+    ) !important;
+    line-height: 1.5;
   }
 }
 
@@ -213,4 +243,76 @@ header:after {
   position: absolute;
   top: -135px;
   left: 65px;
+}
+
+#intro {
+  position: relative;
+}
+
+#intro:before {
+  /* content: ""; */
+  content: url(./assets/icon/header-star-left.svg);
+  position: absolute;
+  /* height: 100px; */
+  background-repeat: no-repeat;
+  bottom: -40px;
+  overflow: hidden;
+  z-index: 0;
+  left: 0;
+}
+
+.see-portfolio {
+  position: relative;
+}
+
+.see-portfolio:after {
+  content: url(./assets/icon/button-after.svg);
+  position: absolute;
+  bottom: -70px;
+  right: -65px;
+}
+
+.service-title {
+  position: relative;
+}
+
+.service-title:after {
+  content: url(./assets/icon/smile.svg);
+  position: absolute;
+  top: 20px;
+  right: -100px;
+}
+
+.services-section {
+  position: relative;
+}
+
+.services-section:after {
+  content: url(./assets/icon/service-right.svg);
+  position: absolute;
+  top: 50px;
+  right: 0;
+}
+
+@media (max-width: 767px) {
+  #intro .intro-section .intro-content .right-column:before {
+    left: 0px;
+  }
+
+  #intro .intro-section .intro-content .right-column:after {
+    left: 90px;
+  }
+}
+
+@media (max-width: 767px) {
+  .service-title:after {
+    content: url(./assets/icon/smile.svg);
+    position: absolute;
+    top: 85px;
+    right: 70px;
+  }
+
+  .services-content {
+    padding: 20px;
+  }
 }
